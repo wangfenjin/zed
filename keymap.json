@@ -144,6 +144,14 @@
     }
   },
   {
+    "context": "EmptyPane",
+    "bindings": {
+      // magit
+      "P u": "git::Push",
+      "escape": "pane::CloseActiveItem"
+    }
+  },
+  {
     "context": "ProjectPanel",
     "bindings": {
       // projectile
