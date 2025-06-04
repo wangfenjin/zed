@@ -1,0 +1,131 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // show keymap
+      "space f e d": "zed::OpenKeymap",
+
+      // terminal
+      "space '": "terminal_panel::ToggleFocus",
+
+      // magit
+      "space g s": "git_panel::ToggleFocus",
+      "space g b": "git::Blame",
+
+      // tab
+      "space b b": "file_finder::Toggle",
+      "space b d": ["workspace::SendKeystrokes", "cmd-w"],
+      "space b s": "workspace::NewFile",
+      "space tab": "file_finder::SelectPrevious",
+      "space 1": ["workspace::SendKeystrokes", "ctrl-1"],
+      "space 2": ["workspace::SendKeystrokes", "ctrl-2"],
+      "space 3": ["workspace::SendKeystrokes", "ctrl-3"],
+      "space 4": ["workspace::SendKeystrokes", "ctrl-4"],
+      "space 5": ["workspace::SendKeystrokes", "ctrl-5"],
+      "space 6": ["workspace::SendKeystrokes", "ctrl-6"],
+      "space 7": ["workspace::SendKeystrokes", "ctrl-7"],
+      "space 8": ["workspace::SendKeystrokes", "ctrl-8"],
+      "space 9": ["workspace::SendKeystrokes", "ctrl-9"],
+      // I used to cmd switch tab
+      "cmd-1": ["workspace::SendKeystrokes", "ctrl-1"],
+      "cmd-2": ["workspace::SendKeystrokes", "ctrl-2"],
+      "cmd-3": ["workspace::SendKeystrokes", "ctrl-3"],
+      "cmd-4": ["workspace::SendKeystrokes", "ctrl-4"],
+      "cmd-5": ["workspace::SendKeystrokes", "ctrl-5"],
+      "cmd-6": ["workspace::SendKeystrokes", "ctrl-6"],
+      "cmd-7": ["workspace::SendKeystrokes", "ctrl-7"],
+      "cmd-8": ["workspace::SendKeystrokes", "ctrl-8"],
+      "cmd-9": ["workspace::SendKeystrokes", "ctrl-9"],
+
+      // comments
+      "space c l": "vim::ToggleComments",
+
+      // outline
+      "space j i": "outline::Toggle",
+
+      // projectile
+      "space p p": "projects::OpenRecent",
+      "space p t": "project_panel::ToggleFocus",
+      "space p f": "file_finder::Toggle",
+      // "space /": "workspace::NewSearch",
+      // replace file_finder::Toggle
+      "space /": [
+        "task::Spawn",
+        { "task_name": "fulltext_search", "reveal_target": "center" }
+      ],
+
+      // agent
+      "ctrl-w ctrl-w": "agent::ToggleFocus",
+      "space a i": "agent::ToggleFocus"
+    }
+  },
+  {
+    // terminal bottom tab
+    "context": "Terminal && screen==normal",
+    "bindings": {
+      "escape": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    // terminal search screen
+    "context": "Terminal && screen==alt",
+    "bindings": {
+      "escape": ["workspace::SendKeystrokes", "ctrl-c"]
+    }
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "escape": ["workspace::SendKeystrokes", "cmd-w"]
+    }
+  },
+  {
+    "use_key_equivalents": true,
+    "bindings": {
+      // disable chat panel as no one use it
+      "cmd-shift-c": null
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      // magit
+      "tab": "git::Diff",
+      "c c": "git::Commit",
+      "b b": "git::CheckoutBranch",
+      "b c": "git::Branch",
+      // NOTE: move git panel to the right
+      "escape": "workspace::ToggleRightDock",
+      "s": "git::ToggleStaged"
+    }
+  },
+  {
+    // GITDIFF: is it the only one
+    "context": "multibuffer",
+    "bindings": {
+      "escape": ["workspace::SendKeystrokes", "cmd-w"]
+    }
+  },
+  {
+    "context": "mode==auto_height && Editor",
+    "bindings": {
+      "ctrl-w ctrl-w": "workspace::ActivateNextPane",
+      // NOTE: move git panel to the right
+      "escape": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      // projectile
+      "q": "workspace::ToggleLeftDock"
+    }
+  }
+]

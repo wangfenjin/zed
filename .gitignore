@@ -1,0 +1,4 @@
+embeddings/
+prompts/
+settings_backup.json
+.tmp*
