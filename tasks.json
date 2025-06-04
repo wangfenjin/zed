@@ -2,6 +2,7 @@
 //
 // Example:
 [
+  // not used
   {
     "label": "magit",
     // install gitu
