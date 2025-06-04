@@ -3,12 +3,47 @@
 // Example:
 [
   {
-    "label": "fulltext_search",
-    "command": "zed \"$(tv text)\"",
+    "label": "magit",
+    // install gitu
+    // https://github.com/altsem/gitu/blob/master/docs/installing.md
+    "command": "zed \"$(gitu)\"",
     "hide": "always",
-    "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "allow_concurrent_runs": false,
+    "use_new_terminal": true,
+    "reveal": "always",
+    "shell": {
+      "program": "/bin/zsh"
+    }
   },
+  {
+    "label": "search_project",
+    // https://github.com/zed-industries/zed/issues/8279#issuecomment-2560089654
+    "command": "zed_search ${ZED_SELECTED_TEXT:-}",
+    // "env": {},
+    // "cwd": "${ZED_WORKTREE_ROOT}",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": true,
+    "reveal": "always",
+    "hide": "always",
+    "show_command": true,
+    "show_summary": true,
+    "reveal_target": "center",
+    "shell": {
+      "program": "/bin/zsh"
+    }
+  },
+  // {
+  //   "label": "fulltext_search",
+  //   // install tv
+  //   // https://github.com/alexpasmantier/television/wiki/Installation
+  //   "command": "zed \"$(tv text)\"",
+  //   "hide": "always",
+  //   "allow_concurrent_runs": true,
+  //   "use_new_terminal": true,
+  //   "shell": {
+  //     "program": "/bin/zsh"
+  //   }
+  // },
   {
     "label": "Example task",
     "command": "for i in {1..5}; do echo \"Hello $i/5\"; sleep 1; done",

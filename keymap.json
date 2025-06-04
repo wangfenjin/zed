@@ -16,7 +16,12 @@
       "space '": "terminal_panel::ToggleFocus",
 
       // magit
+      // if you want to use buildin git panel
       "space g s": "git_panel::ToggleFocus",
+      // "space g s": [
+      //   "task::Spawn",
+      //   { "task_name": "magit", "reveal_target": "center" }
+      // ],
       "space g b": "git::Blame",
 
       // tab
@@ -54,12 +59,11 @@
       "space p p": "projects::OpenRecent",
       "space p t": "project_panel::ToggleFocus",
       "space p f": "file_finder::Toggle",
-      // "space /": "workspace::NewSearch",
-      // replace file_finder::Toggle
-      "space /": [
-        "task::Spawn",
-        { "task_name": "fulltext_search", "reveal_target": "center" }
-      ],
+      // if you want to use the default search
+      "space /": "workspace::NewSearch",
+      // "space /": ["task::Spawn", { "task_name": "search_project" }],
+      // cmd-d to select current word, and then search
+      "space *": ["workspace::SendKeystrokes", "cmd-d space /"],
 
       // agent
       "ctrl-w ctrl-w": "agent::ToggleFocus",
@@ -77,13 +81,7 @@
     // terminal search screen
     "context": "Terminal && screen==alt",
     "bindings": {
-      "escape": ["workspace::SendKeystrokes", "ctrl-c"]
-    }
-  },
-  {
-    "context": "ProjectSearchBar",
-    "bindings": {
-      "escape": ["workspace::SendKeystrokes", "cmd-w"]
+      "escape": "pane::CloseActiveItem"
     }
   },
   {
@@ -101,20 +99,37 @@
       "c c": "git::Commit",
       "b b": "git::CheckoutBranch",
       "b c": "git::Branch",
+      // "p u": "git::Push",
       // NOTE: move git panel to the right
       "escape": "workspace::ToggleRightDock",
-      "s": "git::ToggleStaged"
+      "s": "git::ToggleStaged",
+      // TODO: there is no way to toggle
+      "S": "git::StageAll",
+      "x": ["workspace::SendKeystrokes", "delete"]
     }
   },
   {
-    // GITDIFF: is it the only one
-    "context": "multibuffer",
+    "context": "GitDiff > multibuffer",
     "bindings": {
-      "escape": ["workspace::SendKeystrokes", "cmd-w"]
+      "escape": "pane::CloseActiveItem",
+
+      "x": ["workspace::SendKeystrokes", "cmd-alt-z"],
+      "s": ["workspace::SendKeystrokes", "cmd-alt-y"]
     }
   },
   {
-    "context": "mode==auto_height && Editor",
+    "context": "Editor && multibuffer",
+    "bindings": {
+      "escape": "pane::CloseActiveItem",
+
+      // Search
+      "enter": ["workspace::SendKeystrokes", "g space"],
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "Editor && mode==auto_height",
     "bindings": {
       "ctrl-w ctrl-w": "workspace::ActivateNextPane",
       // NOTE: move git panel to the right

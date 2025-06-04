@@ -15,7 +15,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "claude-3.7-sonnet"
     },
     "version": "2"
   },
