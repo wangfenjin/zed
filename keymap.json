@@ -26,9 +26,9 @@
 
       // tab
       "space b b": "file_finder::Toggle",
-      "space b d": ["workspace::SendKeystrokes", "cmd-w"],
+
       "space b s": "workspace::NewFile",
-      "space tab": "file_finder::SelectPrevious",
+      "space tab": "pane::AlternateFile",
       "space 1": ["workspace::SendKeystrokes", "ctrl-1"],
       "space 2": ["workspace::SendKeystrokes", "ctrl-2"],
       "space 3": ["workspace::SendKeystrokes", "ctrl-3"],
@@ -99,7 +99,8 @@
       "c c": "git::Commit",
       "b b": "git::CheckoutBranch",
       "b c": "git::Branch",
-      // "p u": "git::Push",
+      "P u": "git::Push",
+      "F u": "git::Pull",
       // NOTE: move git panel to the right
       "escape": "workspace::ToggleRightDock",
       "s": "git::ToggleStaged",
@@ -113,7 +114,10 @@
     "bindings": {
       "escape": "pane::CloseActiveItem",
 
+      "c c": "git::Commit",
       "x": ["workspace::SendKeystrokes", "cmd-alt-z"],
+      // TODO: there is no way to toggle
+      "S": "git::StageAll",
       "s": ["workspace::SendKeystrokes", "cmd-alt-y"]
     }
   },
@@ -133,7 +137,10 @@
     "bindings": {
       "ctrl-w ctrl-w": "workspace::ActivateNextPane",
       // NOTE: move git panel to the right
-      "escape": "workspace::ToggleRightDock"
+      "escape": "workspace::ToggleRightDock",
+
+      // magit
+      "ctrl-c ctrl-c": "git::Commit"
     }
   },
   {
