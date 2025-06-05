@@ -7,6 +7,24 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "context_servers": {
+    "mcp-server-context7": {
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
+  },
+  "telemetry": {
+    "metrics": false
+  },
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
   "git_panel": {
     "dock": "right"
   },
@@ -23,10 +41,24 @@
   "base_keymap": "VSCode",
   "vim_mode": true,
   "ui_font_size": 16,
+  "buffer_font_family": "FiraCode Nerd Font",
   "buffer_font_size": 16,
   "collaboration_panel": {
     "button": false
   },
+  "tab_bar": {
+    "show": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "code_actions": false,
+    "runnables": false,
+    "breakpoints": false,
+    "folds": false
+  },
+  "use_smartcase_search": true,
+  "relative_line_numbers": true,
+  "show_completions_on_input": true,
   "chat_panel": {
     "button": "never"
   }

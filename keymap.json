@@ -12,6 +12,9 @@
       // show keymap
       "space f e d": "zed::OpenKeymap",
 
+      // copy file absolute path
+      "space f y y": "workspace::CopyPath",
+
       // terminal
       "space '": "terminal_panel::ToggleFocus",
 
@@ -23,9 +26,11 @@
       //   { "task_name": "magit", "reveal_target": "center" }
       // ],
       "space g b": "git::Blame",
+      "space g l l": "editor::OpenPermalinkToLine",
 
       // tab
       "space b b": "file_finder::Toggle",
+      "space b d": "pane::CloseActiveItem",
 
       "space b s": "workspace::NewFile",
       "space tab": "pane::AlternateFile",
@@ -148,7 +153,18 @@
     "bindings": {
       // magit
       "P u": "git::Push",
-      "escape": "pane::CloseActiveItem"
+      "escape": "workspace::Welcome"
+    }
+  },
+  {
+    "context": "Welcome",
+    "bindings": {
+      // projectile
+      "space p p": "projects::OpenRecent",
+      "space p t": "project_panel::ToggleFocus",
+      "space p f": "file_finder::Toggle",
+      // if you want to use the default search
+      "space /": "workspace::NewSearch"
     }
   },
   {
