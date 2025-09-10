@@ -12,6 +12,9 @@
       // show keymap
       "space f e d": "zed::OpenKeymap",
 
+      // maximize window
+      "space w m": "workspace::CloseAllDocks",
+
       // copy file absolute path
       "space f y y": "workspace::CopyPath",
 
@@ -44,15 +47,15 @@
       "space 8": ["workspace::SendKeystrokes", "ctrl-8"],
       "space 9": ["workspace::SendKeystrokes", "ctrl-9"],
       // I used to cmd switch tab
-      "cmd-1": ["workspace::SendKeystrokes", "ctrl-1"],
-      "cmd-2": ["workspace::SendKeystrokes", "ctrl-2"],
-      "cmd-3": ["workspace::SendKeystrokes", "ctrl-3"],
-      "cmd-4": ["workspace::SendKeystrokes", "ctrl-4"],
-      "cmd-5": ["workspace::SendKeystrokes", "ctrl-5"],
-      "cmd-6": ["workspace::SendKeystrokes", "ctrl-6"],
-      "cmd-7": ["workspace::SendKeystrokes", "ctrl-7"],
-      "cmd-8": ["workspace::SendKeystrokes", "ctrl-8"],
-      "cmd-9": ["workspace::SendKeystrokes", "ctrl-9"],
+      // "cmd-1": ["workspace::SendKeystrokes", "ctrl-1"],
+      // "cmd-2": ["workspace::SendKeystrokes", "ctrl-2"],
+      // "cmd-3": ["workspace::SendKeystrokes", "ctrl-3"],
+      // "cmd-4": ["workspace::SendKeystrokes", "ctrl-4"],
+      // "cmd-5": ["workspace::SendKeystrokes", "ctrl-5"],
+      // "cmd-6": ["workspace::SendKeystrokes", "ctrl-6"],
+      // "cmd-7": ["workspace::SendKeystrokes", "ctrl-7"],
+      // "cmd-8": ["workspace::SendKeystrokes", "ctrl-8"],
+      // "cmd-9": ["workspace::SendKeystrokes", "ctrl-9"],
 
       // comments
       "space c l": "vim::ToggleComments",
@@ -68,11 +71,19 @@
       "space /": "workspace::NewSearch",
       // "space /": ["task::Spawn", { "task_name": "search_project" }],
       // cmd-d to select current word, and then search
-      "space *": ["workspace::SendKeystrokes", "cmd-d space /"],
+      "space *": ["workspace::SendKeystrokes", "cmd-d space / enter"],
+      // "space s l": "Search"
 
       // agent
       "ctrl-w ctrl-w": "agent::ToggleFocus",
       "space a i": "agent::ToggleFocus"
+    }
+  },
+  {
+    // close search pane
+    "context": "ProjectSearchBar > Editor",
+    "bindings": {
+      "escape": "pane::CloseActiveItem"
     }
   },
   {
@@ -149,11 +160,16 @@
     }
   },
   {
+    "context": "AgentPanel > Markdown",
+    "bindings": {
+      "escape": "workspace::ToggleRightDock"
+    }
+  },
+  {
     "context": "EmptyPane",
     "bindings": {
       // magit
-      "P u": "git::Push",
-      "escape": "workspace::Welcome"
+      "P u": "git::Push"
     }
   },
   {
@@ -168,7 +184,7 @@
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       // projectile
       "q": "workspace::ToggleLeftDock"
