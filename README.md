@@ -10,11 +10,14 @@ This project adapts Spacemacs key bindings for use in the Zed editor, bringing t
 - Terminal, project management, and navigation shortcuts
 
 ## Installation
-
-1. Clone this repository to `~/.config/` or
+(Optional) Take a backup of you existing config(s). `cp ~/.config/zed ~/.config_bak` 
+1. Clone this repository `git clone https://github.com/wangfenjin/zed.git ~/.config/zed` Or
 2. Copy the `keymap.json` and `settings.json` files to your Zed configuration directory:
-   - macOS: `~/.config/zed/`
-   - Linux: `~/.config/zed/`
+   - macOS and Linux:
+   ```bash
+    curl https://raw.githubusercontent.com/wangfenjin/zed/refs/heads/main/keymap.json -o ~/.config/zed/keymap.json
+    curl https://raw.githubusercontent.com/wangfenjin/zed/refs/heads/main/settings.json -o ~/.config/zed/settings.json
+   ```
    - Windows: `%APPDATA%\Zed\`
 
 ## Key Bindings
